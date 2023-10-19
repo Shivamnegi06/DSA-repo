@@ -55,7 +55,28 @@ void insertMiddle(Node *&head,Node *&tail, int data, int pos,int count = 1){
 
 //generic deletion
 
+void deleteNode(Node *&head, Node*&tail, int index, int count=0 ){
+    if(index==0){
+        head = head->next;
+        return;
+    }
 
+    if(count+1==index){
+
+        Node *temp = new Node(0);
+        temp = head ->next ;
+        if(temp->next==nullptr){
+            head->next = nullptr;
+            tail = head;
+            return;
+
+        }
+        head->next = temp ->next;
+        return;
+    }
+    count++;
+    deleteNode(head->next,tail,index,count);
+}
 
 
 
@@ -80,10 +101,13 @@ int main(){
     insertHead(head, 5);
     insertTail(tail,15);
     insertMiddle(head,tail,8,3);
+    deleteNode(head,tail,3);
     printList(head);
 
     std::cout<<std::endl;
     std::cout<<head->data<<" "<<tail->data;
+
+
     
     
 }
