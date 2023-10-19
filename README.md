@@ -1,4 +1,4 @@
-#Intro
+# Intro
 
 This repo is dedicated to Data Structures and Algorithms.
 To navigate through this repo you can search or scroll to the specific Algorithm or Data Structure. 
