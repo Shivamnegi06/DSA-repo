@@ -13,6 +13,11 @@ class Node{
         this -> data = data;
         this -> next = nullptr;
     }
+
+    ~Node(){
+        int value  = this->data;
+        std::cout<<"deleted data "<< value<<std::endl;
+    }
 };
 
  //insertion at head
@@ -55,23 +60,28 @@ void insertMiddle(Node *&head,Node *&tail, int data, int pos,int count = 1){
 
 //generic deletion
 
-void deleteNode(Node *&head, Node*&tail, int index, int count=0 ){
+void deleteNode(Node *&head, Node *&tail, int index, int count=0 ){
     if(index==0){
+
         head = head->next;
+
         return;
     }
 
-    if(count+1==index){
+    if((count+1)==index){
 
         Node *temp = new Node(0);
-        temp = head ->next ;
-        if(temp->next==nullptr){
-            head->next = nullptr;
+        
+          if(temp->next==NULL){
             tail = head;
-            return;
 
         }
+        temp = head->next ;
+       
         head->next = temp ->next;
+       
+        
+        delete temp;
         return;
     }
     count++;
@@ -109,5 +119,5 @@ int main(){
 
 
     
-    
+
 }
